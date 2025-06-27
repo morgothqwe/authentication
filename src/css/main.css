@@ -1,0 +1,102 @@
+/* RESET */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1;
+  font-weight: 300;
+  background-color: var(--background);
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+}
+
+/* VARIABLES */
+:root {
+  --background: #1a1a1a; /* Dark background */
+  --card-background: #2d2d2d; /* Dark gray card background */
+  --text-primary: #ffffff; /* White text for labels and "Welcome Back" */
+  --input-background: #ababab; /* Dark gray for input fields */
+  --input-border: #4a4a4a; /* Slightly lighter gray for input borders */
+  --button-background: #007bff; /* Blue for the "Login" button */
+  --button-text: #ffffff; /* White text on the button */
+  --link-color: #007bff; /* Blue for "Sign Up" link */
+  --icon-background: #222222; /* Dark gray for Apple/Google button backgrounds */
+}
+
+/* LAYOUT */
+.auth-container {
+  background-color: var(--card-background);
+
+  width: 34rem;
+  display: grid;
+
+  row-gap: 2.4rem;
+  padding: 1.8rem;
+  border-radius: 0.6rem;
+
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.auth-welcome,
+.auth-signup-link {
+  color: var(--text-primary);
+}
+
+.auth-welcome {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.auth-prompt {
+  color: var(--input-background);
+  font-size: 1.2rem;
+}
+
+.auth-signup-link {
+  text-decoration: none;
+}
+
+.auth-form-container {
+  display: grid;
+  row-gap: 1.2rem;
+}
+
+.auth-form-container * {
+  height: 2.8rem;
+}
+
+.auth-form-container input {
+  padding: 1rem;
+  background-color: var(--icon-background);
+  color: var(--input-background);
+  border: 1px solid var(--input-border);
+  border-radius: 0.6rem;
+}
+
+.auth-submit {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}

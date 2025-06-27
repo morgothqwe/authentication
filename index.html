@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <script type="module" src="./src/js/controller.js"></script>
+    <title>Login System</title>
+  </head>
+  <body>
+    <main class="auth-container">
+      <div class="auth-header">
+        <span class="auth-welcome">Welcome Back</span>
+        <span class="auth-prompt"
+          >Don't have an account yet?
+          <a href="#" class="auth-signup-link">Sign up</a></span
+        >
+      </div>
+
+      <form action="" class="auth-form-container">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          minlength="6"
+          placeholder="email address"
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          minlength="10"
+          placeholder="password"
+        />
+        <button type="submit" class="auth-submit">Login</button>
+        <!-- <i class="fas fa-envelope"></i> -->
+      </form>
+    </main>
+  </body>
+</html>

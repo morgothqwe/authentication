@@ -1,0 +1,14 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "Login System",
+  "license": "ISC",
+  "author": "keiwan",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
