@@ -100,3 +100,19 @@ body {
   border-radius: 0.6rem;
   cursor: pointer;
 }
+
+.welcome__style {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--link-color);
+}
+
+.logout__style {
+  background-color: #e23f0d;
+  width: 8rem;
+  justify-self: center;
+}
+
+.hidden {
+  display: none;
+}
