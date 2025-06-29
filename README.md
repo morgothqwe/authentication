@@ -17,11 +17,11 @@ Live demo: https://authentication-keiwan.netlify.app/
 
 ```
 authentication/
-├── index.html          # Login form UI
-├── app.html            # Protected area shown after login
-├── style.css           # Basic UI styling
-├── auth.js             # Handles login logic and session
-└── app.js              # Handles app page behavior
+├── index.html
+├── main.css
+├── view.js
+├── controller.js
+└── model.js
 ```
 
 ## 🧪 How to Run Locally
