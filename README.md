@@ -50,7 +50,6 @@ const DUMMY_USER = {
 
 - Add password visibility toggle
 - Add a fake register page
-- Use `sessionStorage` instead of `localStorage`
 - Style error and success feedback messages more clearly
 
 ## 📄 License
