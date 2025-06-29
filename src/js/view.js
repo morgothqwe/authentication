@@ -61,7 +61,7 @@ class View {
     this._authPrompt.textContent = "Don't have an account yet?";
     this._authPrompt.insertAdjacentHTML(
       "beforeend",
-      '<a href="#" class="auth-signup-link">Sign up</a>'
+      '&nbsp;<a href="#" class="auth-signup-link">Sign up</a>'
     );
     this._authPrompt.classList.remove("welcome__style");
     delete this._authPrompt.dataset.email; // Clear stored email
