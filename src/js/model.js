@@ -3,10 +3,10 @@ const state = {
   loggedInUser: null,
 };
 
-// Load state from localStorage on initialization
+// Load state from sessionStorage on initialization
 const loadState = () => {
   try {
-    const saved = localStorage.getItem("authState");
+    const saved = sessionStorage.getItem("authState");
     if (saved) {
       const parsed = JSON.parse(saved);
       // Validate and merge state
@@ -16,19 +16,19 @@ const loadState = () => {
           state.users.find((us) => us.email === parsed.loggedInUser.email)) ||
         null;
     } else {
-      console.log("No state found in localStorage");
+      console.log("No state found in sessionStorage");
     }
   } catch (error) {
-    console.error("Failed to load state from localStorage:", error);
+    console.error("Failed to load state from sessionStorage:", error);
   }
 };
 
-// Save state to localStorage
+// Save state to sessionStorage
 export const saveState = () => {
   try {
-    localStorage.setItem("authState", JSON.stringify(state));
+    sessionStorage.setItem("authState", JSON.stringify(state));
   } catch (error) {
-    console.error("Failed to save state to localStorage:", error);
+    console.error("Failed to save state to sessionStorage:", error);
   }
 };
 
@@ -94,9 +94,9 @@ export const getLoggedInUserEmail = function () {
 };
 
 export const clearState = () => {
-  localStorage.removeItem("authState");
+  sessionStorage.removeItem("authState");
   state.users = [];
   state.loggedInUser = null;
   saveState();
-  console.log("Cleared state and localStorage");
+  console.log("Cleared state and sessionStorage");
 };
