@@ -1,1 +1,58 @@
-# Under Development ...
+# 🔐 Authentication UI (Mocked)
+
+A front-end authentication interface that simulates login functionality using **HTML**, **CSS**, and **JavaScript**. This project mimics basic user authentication logic using `localStorage` without relying on a backend server.
+
+Live demo: _(Insert Netlify/Vercel URL if deployed)_
+
+## 🚀 Features
+
+- ✅ Login form with email and password fields
+- ✅ Mocked credential checking using hardcoded data
+- ✅ Basic client-side input validation
+- ✅ LocalStorage-based session persistence
+- ✅ Logout functionality
+- ✅ Conditional rendering based on login state
+
+## 📁 Project Structure
+
+```
+authentication/
+├── index.html          # Login form UI
+├── app.html            # Protected area shown after login
+├── style.css           # Basic UI styling
+├── auth.js             # Handles login logic and session
+└── app.js              # Handles app page behavior
+```
+
+## 🧪 How to Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/morgothqwe/authentication.git
+   cd authentication
+   ```
+
+2. Open `index.html` in your browser to access the login screen.
+
+## 🔐 Mock Credentials
+
+The system uses hardcoded credentials in `auth.js`, for example:
+
+```js
+const DUMMY_USER = {
+  email: "test@example.com",
+  password: "123456",
+};
+```
+
+## 🚧 Potential Enhancements
+
+- Add password visibility toggle
+- Add a fake register page
+- Use `sessionStorage` instead of `localStorage`
+- Style error and success feedback messages more clearly
+
+## 📄 License
+
+This project is licensed under the MIT License.
