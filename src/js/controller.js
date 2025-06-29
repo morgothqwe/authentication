@@ -4,9 +4,7 @@ import * as model from "./model";
 const controlLogin = function (user) {
   const newLogin = model.loginInfo(user);
   if (!newLogin) {
-    view.renderError(
-      "Login failed: User already logged in or invalid credentials"
-    );
+    view.renderError("Login failed: Incorrect email or password");
     return;
   }
   view.renderLogin(newLogin);
@@ -21,9 +19,18 @@ const controlLogout = function (email) {
   view.renderLogout(logout);
 };
 
+const controlRegister = function (user) {
+  const newUser = model.register(user);
+  if (!newUser) {
+    view.renderError("Registration failed: Email already exists");
+    return;
+  }
+  view.renderRegistrationSuccess(newUser);
+};
+
 const init = function () {
-  view.addHandlerAuth(controlLogin, controlLogout); // Renamed to addHandlerAuth for clarity
-  view.initialize(model.isLoggedIn()); // Initialize UI based on login state
+  view.addHandlerAuth(controlLogin, controlLogout, controlRegister);
+  view.initialize(model.isLoggedIn(), model.getLoggedInUserEmail());
 };
 
 init();

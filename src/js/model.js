@@ -1,32 +1,75 @@
 const state = {
   users: [],
-  loggedInUser: null, // Track the currently logged-in user
+  loggedInUser: null,
 };
+
+// Load state from localStorage on initialization
+const loadState = () => {
+  try {
+    const saved = localStorage.getItem("authState");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Validate and merge state
+      state.users = Array.isArray(parsed.users) ? parsed.users : [];
+      state.loggedInUser =
+        (parsed.loggedInUser &&
+          state.users.find((us) => us.email === parsed.loggedInUser.email)) ||
+        null;
+    } else {
+      console.log("No state found in localStorage");
+    }
+  } catch (error) {
+    console.error("Failed to load state from localStorage:", error);
+  }
+};
+
+// Save state to localStorage
+export const saveState = () => {
+  try {
+    localStorage.setItem("authState", JSON.stringify(state));
+  } catch (error) {
+    console.error("Failed to save state to localStorage:", error);
+  }
+};
+
+// Initialize state
+loadState();
 
 export const loginInfo = function (user) {
   const [email, password] = user;
 
-  // Check if user already exists
   const foundUser = state.users.find(
     (us) => us.email === email && us.password === password
   );
 
-  if (foundUser) {
-    // Prevent login if already logged in
-    if (foundUser.condition) return null; // Already logged in
-    foundUser.condition = true;
-    state.loggedInUser = foundUser; // Track logged-in user
-    return foundUser.email;
+  if (!foundUser) {
+    return null; // Invalid credentials
   }
 
-  // Create new user if not found
+  if (foundUser.condition) {
+    return null; // Already logged in
+  }
+
+  foundUser.condition = true;
+  state.loggedInUser = foundUser;
+  saveState();
+  return foundUser.email;
+};
+
+export const register = function (user) {
+  const [email, password] = user;
+
+  if (state.users.some((us) => us.email === email)) {
+    return null; // Email already exists
+  }
+
   const newUser = {
     email,
     password,
-    condition: true, // Set to true on first login
+    condition: false,
   };
   state.users.push(newUser);
-  state.loggedInUser = newUser;
+  saveState();
   return newUser.email;
 };
 
@@ -35,12 +78,25 @@ export const logout = function (email) {
 
   if (foundUser && foundUser.condition) {
     foundUser.condition = false;
-    state.loggedInUser = null; // Clear logged-in user
+    state.loggedInUser = null;
+    saveState();
     return foundUser;
   }
-  return null; // User not found or not logged in
+  return null;
 };
 
 export const isLoggedIn = function () {
-  return !!state.loggedInUser; // Returns true if logged in, false otherwise
+  return !!state.loggedInUser;
+};
+
+export const getLoggedInUserEmail = function () {
+  return state.loggedInUser ? state.loggedInUser.email : null;
+};
+
+export const clearState = () => {
+  localStorage.removeItem("authState");
+  state.users = [];
+  state.loggedInUser = null;
+  saveState();
+  console.log("Cleared state and localStorage");
 };
