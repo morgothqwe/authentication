@@ -116,3 +116,8 @@ body {
 .hidden {
   display: none;
 }
+
+.error__style {
+  color: red;
+  font-weight: bold;
+}
