@@ -2,7 +2,7 @@
 
 A front-end authentication interface that simulates login functionality using **HTML**, **CSS**, and **JavaScript**. This project mimics basic user authentication logic using `localStorage` without relying on a backend server.
 
-Live demo: _(Insert Netlify/Vercel URL if deployed)_
+Live demo: https://authentication-keiwan.netlify.app/
 
 ## 🚀 Features
 
